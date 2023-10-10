@@ -1,0 +1,9 @@
+#!/bin/bash
+printf "Compiling memory module ...\n"
+cd mem
+make install
+cd ..
+printf '\n'
+printf "Compiling spliter ...\n"
+make compile
+
