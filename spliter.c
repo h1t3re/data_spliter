@@ -11,6 +11,7 @@ char **split(char *buffer, char *separator)
 	array = (char **)mem_remem_array(array, "char **", j);
 	for(int i = 0; i <= strlen(buffer); i++)
 	{
+		array = (char **)mem_remem_array(array, "char **", array_len+1);
 		while(buffer[i] != *separator)
 		{
 			array[array_len] = (char *)mem_remem_array(array[array_len], "char *", j+1);
@@ -21,7 +22,6 @@ char **split(char *buffer, char *separator)
 		if(buffer[i] == *separator){
 			array[array_len][j] = '\0';
 			array_len = array_len + 1;
-			array = (char **)mem_remem_array(array, "char **", array_len+1);
 			j = 0;
 		}
 	}
