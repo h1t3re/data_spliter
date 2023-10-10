@@ -40,3 +40,13 @@ void *mem_remem_array(void *array, char *type, int size)
 	}
 	return array;
 }
+
+void free_array(void *array, char *type, int size)
+{
+	if((strcmp(type, "char **") == 0) | (strcmp(type, "int **") == 0))
+	{
+		for(int i = 0; i < size; i++)
+			free(array[i]);
+	}
+	free(array);
+}
