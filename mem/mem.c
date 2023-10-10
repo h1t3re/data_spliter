@@ -5,7 +5,7 @@ void *mem_remem_array(void *array, char *type, int size)
 {
 	if(strcmp(type, "char *") == 0)
 	{
-		if(array == NULL)
+		if((array == NULL) | (size == 0))
 		{
 			array = (char *)malloc(size*sizeof(char));
 			for(int i = 0; i < size; i++)
@@ -22,7 +22,7 @@ void *mem_remem_array(void *array, char *type, int size)
 		}
 	}else if(strcmp(type, "char **") == 0)
 	{
-		if(array == NULL)
+		if((array == NULL) | (size == 0))
 		{
 			array = (char **)malloc(size*sizeof(char *));
 			for(int i = 0; i < size; i++)
