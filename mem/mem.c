@@ -7,10 +7,9 @@ void *mem_remem_array(void *array, char *type, int size)
 	{
 		if(array == NULL)
 		{
-			array = (char *)array;	
 			array = (char *)malloc(size*sizeof(char));
 			for(int i = 0; i < size; i++)
-				array[i] = '\0';
+				(*(char *)&array[i]) = '\0';
 		}else
 		{
 			char *tmp;
@@ -25,10 +24,9 @@ void *mem_remem_array(void *array, char *type, int size)
 	{
 		if(array == NULL)
 		{
-			array = (char **)array;	
 			array = (char **)malloc(size*sizeof(char *));
 			for(int i = 0; i < size; i++)
-				array[i] = '\0';
+				(*(char *)&array[i]) = '\0';
 		}else
 		{
 			char **tmp;
