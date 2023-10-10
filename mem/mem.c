@@ -26,7 +26,7 @@ void *mem_remem_array(void *array, char *type, int size)
 		{
 			array = (char **)malloc(size*sizeof(char *));
 			for(int i = 0; i < size; i++)
-				(*(char *)&array[i]) = '\0';
+				(**(char **)&array[i]) = '\0';
 		}else
 		{
 			char **tmp;
