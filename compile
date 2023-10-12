@@ -1,4 +1,8 @@
 #!/bin/bash
+printf "Compiling strncmp ...\n"
+cd strncmp
+make install
+cd ..
 printf "Compiling memory module ...\n"
 cd mem
 make install
