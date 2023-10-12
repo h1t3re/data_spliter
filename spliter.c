@@ -5,10 +5,9 @@
 
 char **split(char *buffer, char *separator)
 {
-	char **array;
+	char **array = NULL;
 	int array_len = 0;
 	int j = 0;
-	array = (char **)mem_remem_array(array, "char **", j);
 	for(int i = 0; i <= strlen(buffer); i++)
 	{
 		array = (char **)mem_remem_array(array, "char **", array_len+1);
