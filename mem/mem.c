@@ -13,9 +13,6 @@ int cmp(int length, char *str1, char *str2)
 	return 0;
 }
 
-
-
-
 void *mem_remem_array(void *array, char *type, int size)
 {
 	if(cmp(6, type, "char *") == 0)
@@ -25,7 +22,7 @@ void *mem_remem_array(void *array, char *type, int size)
 			array = (char *)array;
 			array = (char *)malloc(size*sizeof(char));
 			for(int i = 0; i < size; i++)
-				(*(char *)&array[i]) = ' ';
+				(*(char *)&array[i]) = '\0';
 		}else
 		{
 			char *tmp;
