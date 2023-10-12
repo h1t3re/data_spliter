@@ -1,39 +1,56 @@
 #include <stdlib.h>
 #include <string.h>
 
+int cmp(int length, char *str1, char *str2)
+{
+	int i = 0;
+	while(i < length)
+	{
+		if(str1[i] != str2[i])
+			return 1;
+		i = i +1;
+	}
+	return 0;
+}
+
+
+
+
 void *mem_remem_array(void *array, char *type, int size)
 {
-	if(strcmp(type, "char *") == 0)
+	if(cmp(6, type, "char *") == 0)
 	{
 		if((array == NULL) | (size == 0))
 		{
+			array = (char *)array;
 			array = (char *)malloc(size*sizeof(char));
 			for(int i = 0; i < size; i++)
 				(*(char *)&array[i]) = ' ';
 		}else
 		{
 			char *tmp;
-			tmp = (char *)realloc(array, size*sizeof(char));
+			tmp = (char *)realloc((char *)array, size*sizeof(char));
 			if((tmp != array) | (tmp == NULL))
 			{
-				free(array);
+				if(array != NULL)
+					free(array);
 				array = tmp;
 			}
 		}
-	}else if(strcmp(type, "char **") == 0)
+	}else if(cmp(6, type, "char **") == 0)
 	{
 		if((array == NULL) | (size == 0))
 		{
+			array = (char **)array;
 			array = (char **)malloc(size*sizeof(char *));
-			for(int i = 0; i < size; i++)
-				(**(char **)&(array[i])) = ' ';
 		}else
 		{
 			char **tmp;
-			tmp = (char **)realloc(array, size*sizeof(char *));
+			tmp = (char **)realloc((char **)array, size*sizeof(char *));
 			if((tmp != array) | (tmp == NULL))
 			{
-				free(array);
+				if(array != NULL)
+					free(array);
 				array = tmp;
 			}
 		}
@@ -43,7 +60,7 @@ void *mem_remem_array(void *array, char *type, int size)
 
 void free_array(void *array, char *type, int size)
 {
-	if((strcmp(type, "char **") == 0) | (strcmp(type, "int **") == 0))
+	if((cmp(6, type, "char **") == 0) | (strcmp(type, "int **") == 0))
 	{
 		for(int i = 0; i < size; i++)
 			free(*(char *)&array[i]);
