@@ -1,11 +1,14 @@
-all : mem
+FLAGS=-Wall -g
 
-FLAGS=-DUSECOLORS -Wall -g -DPRODUCTION -o
-lib= lib/mem.o
-DEP= mem
-include= include/mem.h
+LIB: ../../lib/strncmp.o ../../lib/strlen.o
 
-compile: spliter.c $(lib) $(DEP)
-	gcc $(FLAGS) spliter $< $(lib) $(include) -I lib 
+INCLUDE: ../../include/strncmp.h ../../include/strlen.h
 
+spliter.o: spliter.c spliter.h
+	echo "Compiling spliter ..."
+	gcc $(FLAGS) -c $^ ../../lib/strncmp.o ../../lib/strlen.o
 
+install: spliter.o spliter.h
+	echo "Coping files ... "
+	cp -v spliter.o ../../lib/spliter.o
+	cp -v spliter.h ../../include/spliter.h
