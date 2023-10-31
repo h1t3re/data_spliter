@@ -1,13 +1,15 @@
-#!/bin/bash
-printf "Compiling strncmp ...\n"
+echo "Compiling strncmp ..."
 cd strncmp
 make install
 cd ..
-printf "Compiling memory module ...\n"
-cd mem
+echo "Compiling strlen ..."
+cd strlen
 make install
 cd ..
-printf '\n'
-printf "Compiling spliter ...\n"
-make compile
-
+echo "Compiling spliter ..."
+cd spliter
+make install
+cd ..
+cd input_output
+make install
+cd ..

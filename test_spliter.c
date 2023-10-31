@@ -1,7 +1,7 @@
 #include <stdlib.h>
-#include "../../include/input_output.h"
-#include "../../include/spliter.h"
-#include "../../include/strncmp.h"
+#include "include/input_output.h"
+#include "include/spliter.h"
+#include "include/strncmp.h"
 #include <stdio.h>
 
 int main()
