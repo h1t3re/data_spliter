@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <unistd.h>
-#include "../include/strncmp.h"
+#include "../../include/strncmp.h"
 
 char *read_input()
 {
