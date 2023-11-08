@@ -1,9 +1,6 @@
-FLAGS=-Wall -g
+spliter.o: spliter.c spliter.h ../lib/strlen.o ../lib/strncmp.o
+	gcc -Wall -g -c spliter.c ../lib/strlen.o ../lib/strncmp.o
 
-spliter.o: spliter.c spliter.h
-	gcc $(FLAGS) -c $^ ../lib/strncmp.o ../lib/strlen.o
-
-install: spliter.o spliter.h
-	echo "Coping files ... "
+install: spliter.o
 	cp -v spliter.o ../lib/spliter.o
 	cp -v spliter.h ../include/spliter.h
