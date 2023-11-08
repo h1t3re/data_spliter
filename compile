@@ -1,15 +1,17 @@
-echo "Compiling strncmp ..."
-cd strncmp
-make install
-cd ..
-echo "Compiling strlen ..."
+echo "Compiling strlen ...\n"
 cd strlen
 make install
 cd ..
-echo "Compiling spliter ..."
-cd spliter
+echo "Compiling strncmp ...\n"
+cd strncmp
 make install
 cd ..
+echo "Compiling input_output ...\n"
 cd input_output
 make install
 cd ..
+echo "Compiling spliter ...\n"
+cd spliter
+make install
+cd ..
+make compile
